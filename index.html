@@ -8,9 +8,7 @@
             margin: 0;
             height: 100vh;
             overflow: hidden;
-            /* Kezdőoldal háttér: romantikus kép */
-            
-            <img src="frontpage.jpg" alt="Leírás" width="400"> 
+            background-image: url("https://images.unsplash.com/photo-1517841905240-472988babdf9");
             background-size: cover;
             background-position: center;
             display: flex;
@@ -74,10 +72,7 @@
             display: none;
             position: absolute;
             inset: 0;
-            /* Igen oldal háttér: más romantikus kép */
-            <img src="Happy Valentine's Day – Adorable Bubu And Dudu Love Design Sticker.jpg" alt="Leírás" width="400">
-            background-size: cover;
-            background-position: center;
+            background: radial-gradient(circle, #ff5f9e, #ff2d75);
             color: white;
             justify-content: center;
             align-items: center;
@@ -85,3 +80,57 @@
             font-size: 40px;
             z-index: 5;
         }
+    </style>
+</head>
+<body>
+
+    <div class="box" id="mainBox">
+        <h1>Leszel a valentinom? 💘</h1>
+        <button id="yes">Igen</button>
+        <button id="no">Nem</button>
+    </div>
+
+    <div id="yesPage">
+        <div>Nagyon szeretleek!!! 💖🥰</div>
+        <div style="font-size:25px;margin-top:20px;">
+            Szombaton találkozunk
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("no");
+        const yesBtn = document.getElementById("yes");
+        const yesPage = document.getElementById("yesPage");
+        const mainBox = document.getElementById("mainBox");
+
+        // Nem gomb elszökik
+        noBtn.addEventListener("mouseover", () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+        // Igen oldal
+        yesBtn.addEventListener("click", () => {
+            mainBox.style.display = "none";
+            yesPage.style.display = "flex";
+        });
+
+        // Hulló szívecskék
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
