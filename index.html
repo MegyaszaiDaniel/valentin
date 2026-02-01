@@ -8,8 +8,8 @@
             margin: 0;
             height: 100vh;
             overflow: hidden;
-            /* Kezdőoldal háttér: Bubu és Dudu Valentin kép (bubu fő) */
-            background-image: url("https://i.pinimg.com/originals/79/c9/85/79c985f34ffeb2e7d53ed422e1eaca99.jpg");
+            /* Kezdőoldal háttér: romantikus kép */
+            background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926?fit=crop&w=1950&q=80");
             background-size: cover;
             background-position: center;
             display: flex;
@@ -73,8 +73,8 @@
             display: none;
             position: absolute;
             inset: 0;
-            /* Igen oldal háttér: Bubu és Dudu más kép */
-            background-image: url("https://i.pinimg.com/originals/d9/63/9d/d9639d5d7ba9c0b6962c18f19264bd8f.jpg");
+            /* Igen oldal háttér: más romantikus kép */
+            background-image: url("https://images.unsplash.com/photo-1512931863410-7e2263c8b59d?fit=crop&w=1950&q=80");
             background-size: cover;
             background-position: center;
             color: white;
@@ -84,57 +84,3 @@
             font-size: 40px;
             z-index: 5;
         }
-    </style>
-</head>
-<body>
-
-    <div class="box" id="mainBox">
-        <h1>Leszel a valentinom? 💘</h1>
-        <button id="yes">Igen</button>
-        <button id="no">Nem</button>
-    </div>
-
-    <div id="yesPage">
-        <div>Nagyon szeretlek! 💖🥰</div>
-        <div style="font-size:25px;margin-top:20px;">
-            Szombaton találkozunk<3
-        </div>
-    </div>
-
-    <script>
-        const noBtn = document.getElementById("no");
-        const yesBtn = document.getElementById("yes");
-        const yesPage = document.getElementById("yesPage");
-        const mainBox = document.getElementById("mainBox");
-
-        // Nem gomb elszökik
-        noBtn.addEventListener("mouseover", () => {
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            noBtn.style.left = x + "px";
-            noBtn.style.top = y + "px";
-        });
-
-        // Igen oldal
-        yesBtn.addEventListener("click", () => {
-            mainBox.style.display = "none";
-            yesPage.style.display = "flex";
-        });
-
-        // Hulló szívecskék
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 6000);
-        }
-
-        setInterval(createHeart, 300);
-    </script>
-
-</body>
-</html>
